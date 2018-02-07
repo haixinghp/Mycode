@@ -1,0 +1,228 @@
+  /***************************测试**************************************/  
+  //  Net_Data_Send.Link_Type = UPDATA;//默认先进心跳采集
+  //    iap_data.writeflag =MODE_ING_DOWNLOAD;
+  //  struFLASH_Queue.head = 0;
+  //    struFLASH_Queue.tail =20;
+  
+  //  upgrade_init();upgrade_init(); 
+  //  iap_data.writeflag =MODE_ING_DOWNLOAD;  //test 发送一次数据
+  //  SA_link_send_POST();//发送心跳
+  /*****************************************************************/
+  /*****************************************RTC_SD3078测试****************************************************/
+  //  RTC_SD3078_Init();
+  //  GPIO_Init(GPIOC, GPIO_Pin_4, GPIO_Mode_In_FL_No_IT);
+  ////  GPIO_SetBits(GPIOE, GPIO_Pin_0);
+  ////  RTC_SD3078_SetTime((u8 *)(&struRTC_SD3078_Time));
+  //  TickGetTime(1505211699);
+  ////  RTC_SD3078_CountDownAlarm(0x30,0x01);
+  //  while(1)
+  //  {
+  ////    RTC_SD3078_ReadTime(t1);
+  //    test_cnt = TimeGetTick();
+  //    DelayT_ms(1000);
+  //    if(!(GPIO_ReadInputDataBit(GPIOC, GPIO_Pin_4)))
+  //    {
+  ////      RTC_SD3078_ClearCountDownAlarm();
+  //      RTC_SD3078_CountDownAlarm(0x30,0x01);
+  //      GPIO_ResetBits(GPIOE, GPIO_Pin_0);
+  //      DelayT_ms(1000);
+  //      GPIO_SetBits(GPIOE, GPIO_Pin_0);
+  //      DelayT_ms(1000);
+  ////      RTC_SD3078_CountDownAlarm(0x30,0x01);
+  //    }
+  //  }
+  /*********************************************************************************************/
+  
+      switch (sysFunState)
+  {
+  case 0://进入检测ADXL模块的数据读取
+    WaterDetection_Service();
+    
+    if (Adxl362Para.Read_flag == 1) //如果有阈值触发标志置位
+    {
+      sysFunTimecount = 0;
+      sysFunState = 5;
+      PrintString_("开始获取三轴数据!");
+      XiaoFang_ClsAnalyseState(&Analyse_data_para_XiaoFangZ);//清除分析模式的所有状态
+      XiaoFang_ClsAnalyseState(&Analyse_data_para_XiaoFangX);//清除分析模式的所有状态
+      PrintString("Z轴零点角度:");
+      PrintS8int2String_(Analyse_data_para_XiaoFangZ.zero_angle);
+      PrintString("X轴零点角度:");
+      PrintS8int2String_(Analyse_data_para_XiaoFangX.zero_angle);
+      NewInactAngle_SetSamplingLockFlag();  //进入动作判断的时候，不进行静止判断。
+    }
+    else        //如果没有阈值触发
+    {
+      if (heart_send_flag) 
+      {
+        sysFunState = 6;//发送心跳包
+        debug_send("开始发送心跳包");
+        break;
+      }
+      else
+      {
+        //debug_send_no_end("*"); //如果心跳时间未到
+        //PrintString_("*"); //如果心跳时间未到
+      }
+      //////////////////////////////////////////////////////////////////////////////////
+      //      IntoLowpowerMode();
+      sysFunState = 4;  //进入休眠，by hx 2017-06-17
+    }
+    break;
+  case 1:
+    sysFunState = 4;
+    //}
+    break;
+  case 2:       //发送报警/心跳
+    if(1 == struXiaoFangAlarmTimes.StratAlarm) //这里要模拟清除一次出水主动告警，防止出现多条告警的情况。
+    {
+      struXiaoFangAlarmTimes.StratAlarm = 0;
+      struXiaoFangAlarmTimes.TriggerStatus = TRIGGER_NOT;
+      XiaoFang_ClearRtcWakeFlag();
+      debug_send("被动出水报警！");
+    }
+//    if(!MC8618_Report())
+    {
+      
+      sysFunState++;
+    }
+    break;
+  case 3://关闭外设
+    sysFunState++;
+    break;
+  case 4://清除标志，重新进入低功耗休眠
+    /**********************************************************************************************************************
+    无水到有水实时触发。其他告警：开盖、倾斜、会带上出水告警。
+    **********************************************************************************************************************/
+    if(1 == struXiaoFangAlarmTimes.StratAlarm)    
+    {
+      struXiaoFangAlarmTimes.StratAlarm = 0;
+      if((TRIGGER_FALLING == struXiaoFangAlarmTimes.TriggerStatus)||(XiaoFang_GetRtcWakeFlag())) 
+      {
+        struXiaoFangAlarmTimes.TriggerStatus = TRIGGER_NOT;
+        XiaoFang_ClearRtcWakeFlag();
+        debug_send("主动出水报警！");
+        ENTER_SENDALARM_STATUS; //进入发射流程
+      }
+    }
+    else
+    {
+      NewInactAngle_ClearSamplingLockFlag(); //清除禁止检查锁定。
+      if(NewInactAngle_GetNewAngleEndFlag()) //等待角度静止完成。
+      {
+        Analyse_data_para.alarm_flag = 0;
+        Adxl362Para.Read_flag = 0;
+        uniAlarm.AlarmAllData = 0X00;     //清除所有告警
+        sysFunState = 0;//休眠唤醒后，从头开始执行
+//        struXiaoFangAlarmTimes.TriggerStatus = TRIGGER_NOT;
+//        XiaoFang_ClearRtcWakeFlag();
+        debug_send(">>>系统进入休眠");
+        IntoLowpowerMode();
+      }
+      
+    }
+    break;
+  case 5://
+    if (sysFunTimecount < 5000) //超时退出
+    {
+      Analyse_data_para_XiaoFangZ.present_angle= get_angle_Z(ADXL362_Get_Value());//获取Z轴的数据。
+      XiaoFang_Analyse(&Analyse_data_para_XiaoFangZ);  //分析Z轴数据
+      Analyse_data_para_XiaoFangX.present_angle =get_angle_X(ADXL362_Get_Value());//获取X轴的数据。
+      XiaoFang_Analyse(&Analyse_data_para_XiaoFangX);  //分析X轴数据
+      //
+      if((1 == Analyse_data_para_XiaoFangZ.alarm_flag) || (1 == Analyse_data_para_XiaoFangX.alarm_flag))
+      {
+//        Pack_Rotation_Angle(Analyse_data_para_XiaoFangX.present_angle); //打包旋转角度
+//        Pack_LeanAngle(Analyse_data_para_XiaoFangZ.present_angle);//打包倾斜角度
+        if((1 == Analyse_data_para_XiaoFangZ.alarm_flag)) // 发生倾斜报警
+        {
+          PrintString_("开始倾斜告警!");
+          uniAlarm.struAlarmBit.laenAlarm = 1;
+          //               Pack_Lean_Alarm(1);//打包倾斜告警。
+          ENTER_SENDALARM_STATUS;
+          XiaoFang_ClsAnalyseState(&Analyse_data_para_XiaoFangZ);//清除分析模式的所有状态
+        }
+        
+        if((1 == Analyse_data_para_XiaoFangX.alarm_flag)) // 发生旋转报警
+        {
+          PrintString_("开始开盖告警!");
+          //                Pack_Rotation_Alarm(1); //打包旋转报警
+          uniAlarm.struAlarmBit.openAlarm = 1;
+          ENTER_SENDALARM_STATUS;
+          XiaoFang_ClsAnalyseState(&Analyse_data_para_XiaoFangX);//清除分析模式的所有状态
+        }
+      }
+      else //如果发生未告警
+      {
+        if(NewInactAngle_GetStaticFlag()) //
+        {
+          sysFunState = 4;
+          //                ClsAnalyseState();//清除分析模式的所有状态
+          XiaoFang_ClsAnalyseState(&Analyse_data_para_XiaoFangZ);//清除分析模式的所有状态
+          XiaoFang_ClsAnalyseState(&Analyse_data_para_XiaoFangX);//清除分析模式的所有状态
+          //          PrintString_("none valid angle!back to lowpwer mode!");
+          //          GetNewInactAngle();
+        }
+      }
+    }
+    else
+    {
+      //PrintString_("@");
+      //            ClsAnalyseState();//清除分析模式的所有状态
+      XiaoFang_ClsAnalyseState(&Analyse_data_para_XiaoFangZ);//清除分析模式的所有状态
+      XiaoFang_ClsAnalyseState(&Analyse_data_para_XiaoFangX);//清除分析模式的所有状态
+      PrintString_("Exit!");
+      sysFunState = 4;//重新进入低功耗休眠
+      
+      //Pack_AlarmFlag(1);//设置报警标志
+      //PackageMsg();//先封装，再发送
+      //sysFunState = 2;//发送消息
+    }
+    break;
+  case 6://发送心跳包
+//    Pack_AlarmFlag(0);//设置心跳标志
+//    PackageMsg();//先封装，再发送
+    sysFunState = 2;
+    break;
+    
+    
+  case 10://等待配置参数过程  超时时间为5S
+    //在复位后的5S内，必须给出正确的命令来进行配置
+    //如果ID号位默认值（0000000000000000号，ID号是默认值的时候，是不进入正常程序的
+    waitforconfig_timecount = 0;
+    sysFunState = 11;
+    break;
+  case 11:
+    if (waitforconfig_timecount >= 10000) {
+      sysFunState = 0;
+    } else {
+      if (para_config_flag) { //如果有配置标志，那么进入到配置流程
+        sysFunState = 12;
+      }
+    }
+    break;
+  case 12://获取配置参数  ID  校对温度
+    //设置ID号
+    break;
+  case 13://水位检测  又返回  再切换到
+    
+    //    if(WaterDetcetFun()){
+    //        //单独进入水位检测
+    //    }else{
+    //      sysFunState = 4;//进入低功耗
+    //    }
+    
+    
+    break;
+  case 14:
+    break;
+  case 15:
+    break;
+  case 16:
+    break;
+  default:
+    sysFunState = 0;
+    break;
+  }
+  
+  

@@ -1,0 +1,505 @@
+#ifndef __SYS_H
+#define __SYS_H
+#define SetOnLed        GPIO_SetBits(GPIOF,GPIO_Pin_1)
+#define SetOffLed       GPIO_ResetBits(GPIOF,GPIO_Pin_1)
+#define ToggleLed       GPIO_ToggleBits(GPIOF,GPIO_Pin_1)
+typedef struct _HEX2STR_21_ {
+  u8 str21[42];
+} HEX2STR_21;
+typedef struct _HEX2STR_16_ {
+  u8 str16[32];
+} HEX2STR_16;
+typedef struct _HEX2STR_13_ {
+  u8 str13[26];
+} HEX2STR_13;
+typedef struct _HEX2STR_8_ {
+  u8 str8[16];
+} HEX2STR_8;
+typedef struct _HEX2STR_4_ {
+  u8 str4[8];
+} HEX2STR_4;
+typedef struct _HEX2STR_2_ {
+  u8 str2[4];
+} HEX2STR_2;
+typedef struct _HEX2STR_1_ {
+  u8 str1[2];
+} HEX2STR_1;
+//
+//typedef struct _DATA_INFO_S_ {
+//  HEX2STR_1 PdType_Cmd;
+//  HEX2STR_1 DvType_Cmd;
+//  HEX2STR_16 Id_Cmd;
+//  HEX2STR_4 Cstm_Cmd;
+//  HEX2STR_13 Num_Cmd;
+//  HEX2STR_2 Firm_Cmd;
+//  HEX2STR_1 State_Cmd;
+//  HEX2STR_1 SigStren_Cmd;
+//  HEX2STR_1 ResV_Cmd;
+//  HEX2STR_1 Temp_Cmd;
+//  HEX2STR_1 Angle_Cmd;
+//  HEX2STR_2 X_Value_Cmd;
+//  HEX2STR_2 Y_Value_Cmd;
+//  HEX2STR_2 Z_Value_Cmd;
+//  HEX2STR_1 Low_Power_Alarm_Cmd;
+//  HEX2STR_1 Low_Temp_Alarm_Cmd;
+//  HEX2STR_1 Trigger_Alarm_Cmd;
+//  HEX2STR_1 Trigger_Angle_Cmd;
+//  HEX2STR_2 Trigger_Interval_Cmd;
+//  HEX2STR_2 Alarm_Interval_Cmd;
+//  HEX2STR_2 Sencond_Query_Interval_Cmd;//20170503 新增二次确认间隔时间 2个字节
+//  HEX2STR_1 Sens_Cmd;
+//  HEX2STR_2 Send_Totalcount_cmd;//原为重连间隔，修改了电池发送总次数
+//  HEX2STR_1 Max_Count_Rec_Cmd;
+//  HEX2STR_1 Pre_Count_Rec_Cmd;
+//  HEX2STR_21 Cloud_Server_Add_Cmd;//20170503 新增当前采集地址上报 21个字节
+//  HEX2STR_1 Carrier_Cmd;
+//  HEX2STR_1 Mod_Type_Cmd;
+//  HEX2STR_1 Mnc_Cmd;
+//  HEX2STR_2 Lac_Tac_Cmd;
+//  HEX2STR_4 Ci_Cmd;
+//  HEX2STR_2 Sid_Cmd;
+//  HEX2STR_2 Nid_Cmd;
+//  HEX2STR_2 Bid_Cmd;
+//  HEX2STR_1 Gps_Type_Cmd;
+//  HEX2STR_8 Gps_Long_Cmd;
+//  HEX2STR_8 Gps_Lat_Cmd;
+//} DATA_INFO_S; //数据包长度93*2字节 
+//  //长度变更  20170503 新增长度（2+21）*2字节   总字节为116*2
+//
+//typedef struct _TCP_DATA_S_ {
+//  u8 Soi_Cmd;//1个字节
+//  HEX2STR_1 Ver_Cmd;//1*2字节
+//  HEX2STR_1 Adr_Cmd;//1*2字节
+//  HEX2STR_1 Cid1_Cmd;//1*2字节
+//  HEX2STR_1 Cid2_Cmd;//1*2字节
+//  HEX2STR_2 Len_Cmd;//2*2字节
+//  DATA_INFO_S Data_Info;//93*2字节 //20170503 变更为116*2字节
+//  HEX2STR_2 Chksum_Cmd;//2*2字节
+//  u8 Eoi_Cmd;//1个字节
+//} TCP_DATA_S; //总的是204字节 CHECKSUM计算的是204-1-1-4=198字节 除去头尾是101*2字节
+//              //20170503 总的是250字节 CHECKSUM计算的是250-1-1-4=244字节 除去头尾是124*2字节
+//
+//typedef struct _ZIPSEND_DATA_ {
+//  char cmd_start[17];
+//  TCP_DATA_S TcpData_S;
+//  char cmd_end[2];
+//} ZIPSEND_DATA;
+//
+//union UNION_PACKET_DATA
+//{
+//  //char senddata[223];
+//  char senddata[269];
+//  ZIPSEND_DATA ZipsendData;
+//};
+typedef struct _DATA_INFO_T_ {
+  unsigned char PdType_Cmd;//产品类型
+  unsigned char DvType_Cmd;//设备类型
+  unsigned char Id_Cmd[16];//设备序号
+  unsigned char Cstm_Cmd[4];//客户码 Cstm_Cmd
+  unsigned char Num_Cmd[13];//物联网卡号
+  unsigned int  Firm_Cmd;//固件版本
+  unsigned char State_Cmd;//设备状态
+  unsigned char SigStren_Cmd;//信号强度
+  unsigned char ResV_Cmd;//剩余电压
+  unsigned char Temp_Cmd; //环境温度
+  unsigned char Angle_Cmd; //倾斜角度
+  unsigned int  X_Value_Cmd;//X轴加速度
+  unsigned int  Y_Value_Cmd;//Y轴加速度
+  unsigned int  Z_Value_Cmd;//Z轴加速度
+  unsigned char Low_Power_Alarm_Cmd;//低压报警
+  unsigned char Low_Temp_Alarm_Cmd;//低温报警
+  unsigned char Trigger_Alarm_Cmd;//触发报警
+  unsigned char Trigger_Angle_Cmd;//触发角度
+  unsigned int  Trigger_Interval_Cmd;//触发间隔
+  unsigned int  Alarm_Interval_Cmd;//报警间隔
+  unsigned int  Sencond_Query_Interval_Cmd;//二次确认间隔
+  unsigned char Sens_Cmd;//灵敏度
+  unsigned int  Send_Totalcount_cmd;//累计发送次数
+  unsigned char Max_Count_Rec_Cmd;//最大重连次数
+  unsigned char Pre_Count_Rec_Cmd;//当前重连次数
+  unsigned char Cloud_Server_Add_Cmd[21];//当前采集地址
+  unsigned char Carrier_Cmd;//运营商
+  unsigned char Mod_Type_Cmd;//模块制式
+  unsigned char Mnc_Cmd;//MNC
+  unsigned int  Lac_Tac_Cmd;//LAC/TAC
+  unsigned char Ci_Cmd[4];//CI
+  unsigned int  Sid_Cmd;//SID
+  unsigned int  Nid_Cmd;//NID
+  unsigned int  Bid_Cmd;//BID
+  unsigned char Gps_Type_Cmd;//GPS 模块类型
+  unsigned char Gps_Long_Cmd[8];//GPS经度 Gps_Long_Cmd
+  unsigned char Gps_Lat_Cmd[8];//GPS纬度 Gps_Lat_Cmd
+  unsigned int  Chksum_Cmd;//校验码 Chksum_Cmd
+} DATA_INFO_T;
+
+typedef struct _HEART_DATA_ {
+  unsigned char SOI;
+  unsigned char VER;
+  unsigned char ADR;
+  unsigned char CID1;
+  unsigned char CID2;
+  unsigned int LENGTH;
+  DATA_INFO_T   INFO;
+  unsigned char EOI;
+} HEART_DATA;
+
+//typedef struct _DATA_INFO_R_ {
+//  HEX2STR_16 Id_Cmd;
+//  HEX2STR_1 DeviState_Cmd;
+//  HEX2STR_1 NewParaFlag_Cmd;
+//  HEX2STR_1 NewFirmFlag_Cmd;
+//} DATA_INFO_R; //数据包长度93*2字节
+//typedef struct _TCP_DATA_R_ {
+//  u8 Soi_Cmd;//1个字节
+//  HEX2STR_1 Ver_Cmd;//1*2字节
+//  HEX2STR_1 Adr_Cmd;//1*2字节
+//  HEX2STR_1 Cid1_Cmd;//1*2字节
+//  HEX2STR_1 Rtn_Cmd;//1*2字节
+//  HEX2STR_2 Len_Cmd;//2*2字节
+//  //DATA_INFO_R Data_Info;//93*2字节 
+//  DATA_INFO_R Data_Info;//20170503 变更为116*2字节
+//  HEX2STR_2 Chksum_Cmd;//2*2字节
+//  u8 Eoi_Cmd;//1个字节
+//} TCP_DATA_R; //总的是204字节 CHECKSUM计算的是204-1-1-4=198字节 除去头尾是101*2字节
+//              //20170503 总的是250字节 CHECKSUM计算的是250-1-1-4=244字节 除去头尾是124*2字节
+
+//extern union UNION_PACKET_DATA PacketData;
+//extern TCP_DATA_S TcpData_S;
+//extern TCP_DATA_R TcpData_R;
+
+/*typedef struct _SYS_PARA_{
+
+
+}SYS_PARA;*/
+typedef struct _ADXL362_PARA_
+{
+  u8 Inteval_timecount;//读取的间隔时间
+  u8 Read_timecount;//读取计时时间
+  u8 Max_readcount;//连续读取的次数
+  u8 Readcount;
+  u8 Read_flag : 1;
+  u8 Busy_flag : 1; //占线标志
+  u8 Scan_state;//扫描状态值
+  //ADXL_XYZ_ANGLE Databuf_array[100];1
+} ADXL362_PARA;
+
+typedef struct _liquid_alarm_
+{
+  u8  Read_flag      : 1;  
+  u8  Complete_flag  : 1;
+  u8  Liquiddown_flag: 1; 
+} Liquid_Alarm;
+
+
+extern HEART_DATA Heart_data;  //心跳包
+extern ADXL362_PARA Adxl362Para;
+extern Liquid_Alarm LiquidAlarm; //水浸
+extern u8 sysFunState;
+extern u16 sysFunTimecount;
+extern u8 getXyzOffsetAngleFunState;
+//extern u16 getXyzOffsetAngleTimecount;
+
+extern u8 SetZeroPosFunState;
+//extern u16 SetZeroPosTimecount;
+
+extern _Bool heart_send_flag;
+
+extern u16 waitforconfig_timecount;
+extern _Bool para_config_flag;
+
+
+extern u16 sys_overtime_count;
+extern const char NO[16];
+typedef enum
+{
+  SOI           =       (uint8_t)0x00,   /* SOI */
+  VER           =       (uint8_t)0x01,
+  ADR           =       (uint8_t)0x02,
+  CID1          =       (uint8_t)0x04,
+  CID2          =       (uint8_t)0x05,
+  LENGTH        =       (uint8_t)0x06,
+  DATAINFO      =       (uint8_t)0x07,
+  CHKSUM        =       (uint8_t)0x08,
+  EOI           =       (uint8_t)0x09,
+} SEND_DATA_TypeDef;
+
+
+typedef struct _ANALYSE_DATA_PARA_
+{
+  u16 over_time;//超时时间
+  s8 zero_angle;//零点角度
+  u8 set_angle;//设定角度
+  s8 present_angle;//当前角度
+  s8 valid_angle_d_value;//有效角度的相互差值
+  u8 set_valid_angle_unbroken_num;//设定的最长有效角度连续数目
+  u8 valid_angle_unbroken_num;//最长有效角度连续数目
+  u8 analyse_state;//状态机状态值
+  u8 inact_flag : 1; //静态标志
+  u8 alarm_flag : 1; //报警标志
+  u8 sencond_query_flag : 1;//二次确认标志
+  u8 sencond_query_pending_flag : 1; //二次确认待处理标志
+  u8 sencond_query_start_flag : 1;//二次确认开始发送标志
+  u8 sencond_query_finish_flag : 1;//二次确认结束发送标志
+  u8 send_busy_flag : 1;//发送忙标志
+} ANALYSE_DATA_PARA;
+
+
+////////////整机关键系统参数/////////////////(需存储在EEPROM里面)
+#define SYS_KEYDATA_LEN sizeof(SYS_KEYDATA)  //总长度
+
+#define WATER_PRESSURE_EN (1) //水压编译开关，by hx 2017-11-04
+#define SMART_COVERS_EN (0)//井盖编译开关，by hx 2017-11-04
+
+#if WATER_PRESSURE_EN
+
+#if APP_SELECT_COVER //一下代码是闷盖程序特有的代码
+typedef struct _SYS_KEYDATA_
+{
+  /***************************这里的参数需要本地协议配置得到******************************/
+
+  u8 device_id[17];//设备ID
+  //u8 soft_version[2];//软件版本//修改协议，另定软件版本固定：SOFTWARE_VER，心跳、12
+  u8 harware_version[2];//硬件版本 //修改协议，硬件版本增加至两个字节，如V12.34==0x0c,0x22
+  u8 status; //设备状态    Uchar    库存状态 运输状态 待装状态 正常状态
+  u8 SigStren;//信号强度
+  // 电池电压
+  u16 send_totalcount;//电池发送总次数
+  //环境温度 
+  u8 rotation_trigger_angle;//旋转触发角度
+  u8 rotation_trigger_sens;//旋转触发灵敏度
+  u8 lean_trigger_angle;//倾斜触发角度
+  u8 lean_trigger_sens;//倾斜触发灵敏度
+  u16 pressure_trigger_value;//压力触发阈值
+  u16 pressure_interval;//压力检测间隔
+  u16 Alarm;//告警
+  u16 heartdata_sent_interval_hour_count;//心跳间隔时间
+  u16 alarm_sent_interval_minute_count;//报警间隔时间
+  u16 trigger_interval_minute_count;//触发间隔时间
+  u8 default_cloud_server_add[22];//云端服务器地址255.255.255.255,65535
+  u8 update_server_add[22];//升级服务器地址255.255.255.255,65535
+  u8 carrier_type;//运营商   不可修改 绑定硬件版本
+  u8 module_type;//模块制式 不可修改 绑定硬件版本
+  u8 Num_Cmd[21];  //物联网卡号。
+/*************************************************************************/  
+  u16 pressure_value;//压力
+  s16 rotation_angle;//旋转角度
+  s8 lean_angle;//倾斜角度 
+} SYS_KEYDATA;
+#endif
+
+#if APP_SELECT_PRESSURE   //一下代码是水压程序特有的代码
+typedef struct _SYS_KEYDATA_
+{
+  u8 device_id[17];//设备ID
+  //u8 soft_version[2];//软件版本//修改协议，另定软件版本固定：SOFTWARE_VER，心跳、12
+  u8 harware_version[2];//硬件版本 //修改协议，硬件版本增加至两个字节，如V12.34==0x0c,0x22
+  u8 status; //设备状态    Uchar    库存状态 运输状态 待装状态 正常状态
+  u8 SigStren;//信号强度
+  // 电池电压
+  u16 send_totalcount;//电池发送总次数
+  //环境温度 
+  u16 pressure_value;//压力
+  u16 SamplingValue; //采样原始值
+//  u8 rotation_trigger_angle;//旋转触发角度
+//  u8 rotation_trigger_sens;//旋转触发灵敏度
+//  u8 lean_trigger_angle;//倾斜触发角度
+//  u8 lean_trigger_sens;//倾斜触发灵敏度
+  u16 pressure_trigger_value;//压力变化分辨率
+//  u16 pressure_interval;//压力检测间隔
+  u16 Alarm;//告警
+  u16 heartdata_sent_interval_hour_count;//心跳间隔时间
+  u16 AlarmEnableBit; //告警使能0失能，1使能
+  u16 PressureUpLimitAlarmInterval; //上限告警间隔时间
+  u16 PressureDownLimitAlarmInterval; //下限告警间隔时间
+  u16 NoSensorAlarmInterval; //未检测到传感器告警间隔
+  u16 ResolutionAlarmInterval; //分辨率上报告警间隔
+  u16 TouchOffAlarmInterval;  //人工触发上报间隔
+//  u16 alarm_sent_interval_minute_count;//报警间隔时间
+  u16 trigger_interval_minute_count;//触发间隔时间
+  u8 default_cloud_server_add[22];//云端服务器地址255.255.255.255,65535
+  u8 update_server_add[22];//升级服务器地址255.255.255.255,65535
+  u8 carrier_type;//运营商   不可修改 绑定硬件版本
+  u8 module_type;//模块制式 不可修改 绑定硬件版本
+  u8 Num_Cmd[21];  //物联网卡号。
+  s32 TimesTamp;  //时间戳 
+  u16 pressure_upLimit; //压力上限
+  u16 pressure_downLimit; //压力下限 
+} SYS_KEYDATA;
+
+#endif 
+
+#endif
+
+#if APP_SELECT_COVER //一下代码是闷盖程序特有的代码
+  #define ENTER_SENDALARM_STATUS_EN 1
+  #if ENTER_SENDALARM_STATUS_EN 
+  #define ENTER_SENDALARM_STATUS (CoverSysFunState = CoverSysFunState_SendData)
+  #else
+  #define ENTER_SENDALARM_STATUS 
+  #endif
+
+  #define ENTER_LPM_STATUS_EN 1
+  #if ENTER_LPM_STATUS_EN 
+  #define ENTER_LPM_STATUS (CoverSysFunState = CoverSysFunState_InterLPM)
+  #else
+  #define ENTER_LPM_STATUS 
+  #endif
+#endif 
+#if APP_SELECT_PRESSURE   //一下代码是水压程序特有的代码
+// #define ENTER_SENDALARM_STATUS_EN 1
+//  #if ENTER_SENDALARM_STATUS_EN 
+//  #define ENTER_SENDALARM_STATUS (sysFunState = 2)
+//  #else
+//  #define ENTER_SENDALARM_STATUS 
+//  #endif
+#endif
+
+#if APP_SELECT_PRESSURE   //一下代码是水压程序特有的代码
+extern const SYS_KEYDATA Default_Sys_keydata;
+extern SYS_KEYDATA Sys_keydata;
+#endif
+
+#if APP_SELECT_COVER //一下代码是闷盖程序特有的代码
+extern const SYS_KEYDATA Default_Sys_keydata;
+extern SYS_KEYDATA Sys_keydata;
+#endif
+
+extern ANALYSE_DATA_PARA Analyse_data_para;
+
+
+//初始化adxl362扫描函数的参数
+void InitAdxl362Para(void);
+// 描述:设置触发阈值角度
+void SetThresholdAngle(s8, s8, s8);
+// 描述:设置ADXL362的读取间隔时间和连续读取次数
+void SetAdxl362Interval_timeAndMax_count(u8, u8);
+// 描述:扫描ADXL362角度
+//_Bool ScanActionOfAdxl362(void);
+// 描述:系统状态切换
+void sysFun(void);
+
+#if APP_SELECT_PRESSURE   //一下代码是水压程序特有的代码
+   void PressureSysFun(void);//水压业务流程程序
+#endif
+
+#if APP_SELECT_COVER //一下代码是闷盖程序特有的代码
+ void CoverSysFun(void);
+#endif 
+
+// 描述:系统状态切换参数初始化
+void SysParaInit(void);
+
+//设置关键参数
+void Set_Key_Para(void);
+
+void PackageMsg(void);
+
+//void SendData2Cloud(USART_TypeDef *USARTx,unsigned char *send_data,SEND_DATA_TypeDef data_type);
+//void PackageTempData(USART_TypeDef *USARTx);
+
+//设置触发角度
+//触发角度 范围为3-40度 正偏移0
+void SetTiggerAngleValue(u8 tiggerangle_value);
+//设置分析的灵敏度
+//灵敏度默认为4 正偏移4转换后的连续数目为8
+//范围为1-7 正偏移后的范围为5-11
+void SetSensitiveValue(u8 sen_value);
+
+
+
+void ClsAnalyseState(void);
+_Bool AnalyseData(void);
+
+//封装物联网卡 卡号
+void Pack_IotNum(char *num_string);
+//设置信号强度 打包信号强度
+void Pack_SigStren(u8 sig_stren);
+//设置触发标志 打包报警标志
+void Pack_AlarmFlag(u8 tempflag);
+//打包温度信息
+void Pack_TempValue(void);
+//打包ID信息
+void Pack_IdInfo(void);
+//打包发送总次数信息
+void Pack_SendTotalcount(void);
+
+//打包倾斜角度 
+void Pack_LeanAngle(s8 lean_angle);
+//打包触发角度
+void Pack_TriggerAngle(void);
+//打包灵敏度
+void Pack_TriggerSens(void);
+
+
+//打包固件软件版本  包含软件版本和硬件版本
+void Pack_Firm_Version(void);
+//打包心跳时间
+void Pack_Heartdata_Send_Intervalcount(void);
+//打包运营商
+void Pack_Carrier_Type(void);
+//打包模块类型
+void Pack_module_Type(void);
+//打包二次确认间隔
+void Pack_Second_Query_Intervalcount(void);
+//打包当前采集地址
+void Pack_Cloud_Server_Add(void);
+
+
+//计算校验码
+void CalcChecksum(HEX2STR_2 *checksum_out,char *array_data,u16 len);
+
+
+extern u8 GetNewInactAngle_Fun_state;
+extern u16 GetNewInactAngle_timecount;
+void GetNewInactAngle_Fun(void);
+
+//增加一次 电池发送总次数
+void Increase_send_totalcount(void);
+
+
+void PrintString(char *temp_in_string);
+void PrintString_(char *temp_in_string);
+void PrintS8int2String(s8 print_num);
+void PrintS8int2String_(s8 print_num);
+void PrintU8int2String(u8 print_num);
+void PrintU8int2String_(u8 print_num);
+void PrintU16int2String(u16 print_num);
+void PrintU16int2String_(u16 print_num);
+void PrintU32int2String_(u32 print_num);
+void PrintU32int2String(u32 print_num);
+//void PrintU16int2HEX_(u16 print_num);
+//void PrintU32int2HEX_(u32 print_num);
+//打印中文字符
+void PrintChinese(char *temp_in_string);
+
+
+void PrintStringWithLen_(char *temp_in_string,u8 len);
+
+
+void PrintSysInfo(void);//打印固件版本号
+void PrintSysParaList(void);//打印系统参数
+
+
+void TaskSchedule(void);
+
+extern u16 task_schedule_timecount;
+extern u8 TashSchedule_State;
+
+extern _Bool SendHeartPacket(u16 heartcount);
+
+extern u16 *getSamplingValue();
+extern u16 *getAlarmEnableBit();
+extern u16 *getPressureUpLimitAlarmInterval();
+extern u16 *getPressureDownLimitAlarmInterval();
+extern u16 *getNoSensorAlarmInterval();
+extern u16 *getResolutionAlarmInterval();
+extern u16 *getTouchOffAlarmInterval();
+extern u16 *getPressureUpLimit();
+extern u16 *getPressureDownLimit();
+extern void SysKeydataInit();
+
+extern void ClearHeartTimeCount();
+extern _Bool *getheart_send_flag();
+extern u16 *getheart_timecount();
+extern void Parameter_Init(void);
+#endif

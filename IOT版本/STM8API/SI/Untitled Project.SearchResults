@@ -1,0 +1,79 @@
+---- UPLOAD Matches (79 in 16 files) ----
+cdma.c (E:\魔豆资料\智能消防\智能消防水压\STM8API_V4.0_V2.07-整理兼容未测试\STM8API_V4.0_V2.07-整理兼容未测试\STM8API\qwl_net\cdma) line 407 :   if(Net_Data_Send.Link_Type == UPLOAD)
+config.h (E:\魔豆资料\智能消防\智能消防水压\STM8API_V4.0_V2.07-整理兼容未测试\STM8API_V4.0_V2.07-整理兼容未测试\STM8API\App) line 70 : #include "Uploading_Pro.h"
+iap_updata.c (E:\魔豆资料\智能消防\智能消防水压\STM8API_V4.0_V2.07-整理兼容未测试\STM8API_V4.0_V2.07-整理兼容未测试\STM8API\BSP\iap_updata) line 22 : #if CONF_EX_MEMORY_EN == UPLOAD_SPI_FLASH     //外部FLASH
+iap_updata.c (E:\魔豆资料\智能消防\智能消防水压\STM8API_V4.0_V2.07-整理兼容未测试\STM8API_V4.0_V2.07-整理兼容未测试\STM8API\BSP\iap_updata) line 25 : #elif CONF_EX_MEMORY_EN == UPLOAD_EEPROM//外部32K EEPROM
+iap_updata.c (E:\魔豆资料\智能消防\智能消防水压\STM8API_V4.0_V2.07-整理兼容未测试\STM8API_V4.0_V2.07-整理兼容未测试\STM8API\BSP\iap_updata) line 161 : #if CONF_EX_MEMORY_EN == UPLOAD_SPI_FLASH  //外存储器为flash
+iap_updata.c (E:\魔豆资料\智能消防\智能消防水压\STM8API_V4.0_V2.07-整理兼容未测试\STM8API_V4.0_V2.07-整理兼容未测试\STM8API\BSP\iap_updata) line 232 : #if CONF_EX_MEMORY_EN == UPLOAD_SPI_FLASH  //外存储器为flash
+iap_updata.c (E:\魔豆资料\智能消防\智能消防水压\STM8API_V4.0_V2.07-整理兼容未测试\STM8API_V4.0_V2.07-整理兼容未测试\STM8API\BSP\iap_updata) line 292 : #elif CONF_EX_MEMORY_EN ==  UPLOAD_EEPROM//外部eeprom存储
+iap_updata.c (E:\魔豆资料\智能消防\智能消防水压\STM8API_V4.0_V2.07-整理兼容未测试\STM8API_V4.0_V2.07-整理兼容未测试\STM8API\BSP\iap_updata) line 426 : #if CONF_EX_MEMORY_EN == UPLOAD_SPI_FLASH 
+iap_updata.c (E:\魔豆资料\智能消防\智能消防水压\STM8API_V4.0_V2.07-整理兼容未测试\STM8API_V4.0_V2.07-整理兼容未测试\STM8API\BSP\iap_updata) line 431 : #elif CONF_EX_MEMORY_EN ==  UPLOAD_EEPROM//外部eeprom存储
+iap_updata.c (E:\魔豆资料\智能消防\智能消防水压\STM8API_V4.0_V2.07-整理兼容未测试\STM8API_V4.0_V2.07-整理兼容未测试\STM8API\BSP\iap_updata) line 450 :  #if CONF_EX_MEMORY_EN == UPLOAD_SPI_FLASH //外部flash
+iap_updata.c (E:\魔豆资料\智能消防\智能消防水压\STM8API_V4.0_V2.07-整理兼容未测试\STM8API_V4.0_V2.07-整理兼容未测试\STM8API\BSP\iap_updata) line 455 : #elif CONF_EX_MEMORY_EN ==  UPLOAD_EEPROM//外部eeprom存储
+lowpower.c (E:\魔豆资料\智能消防\智能消防水压\STM8API_V4.0_V2.07-整理兼容未测试\STM8API_V4.0_V2.07-整理兼容未测试\STM8API\SmartAlarmer_Sys\Lowpower) line 80 : #if CONF_EX_MEMORY_EN == UPLOAD_EEPROM  //外存储器为eeprom
+lowpower.c (E:\魔豆资料\智能消防\智能消防水压\STM8API_V4.0_V2.07-整理兼容未测试\STM8API_V4.0_V2.07-整理兼容未测试\STM8API\SmartAlarmer_Sys\Lowpower) line 94 : #if CONF_EX_MEMORY_EN == UPLOAD_SPI_FLASH
+lowpower.c (E:\魔豆资料\智能消防\智能消防水压\STM8API_V4.0_V2.07-整理兼容未测试\STM8API_V4.0_V2.07-整理兼容未测试\STM8API\SmartAlarmer_Sys\Lowpower) line 104 : #if CONF_EX_MEMORY_EN != UPLOAD_SPI_FLASH //屏蔽外部flsah时
+lowpower.c (E:\魔豆资料\智能消防\智能消防水压\STM8API_V4.0_V2.07-整理兼容未测试\STM8API_V4.0_V2.07-整理兼容未测试\STM8API\SmartAlarmer_Sys\Lowpower) line 143 : #if CONF_EX_MEMORY_EN == UPLOAD_SPI_FLASH//外存储器为flash
+InitHardWare in main.c (E:\魔豆资料\智能消防\智能消防水压\STM8API_V4.0_V2.07-整理兼容未测试\STM8API_V4.0_V2.07-整理兼容未测试\STM8API\App) : #if CONF_EX_MEMORY_EN == UPLOAD_SPI_FLASH  //外存储器为flash
+InitHardWare in main.c (E:\魔豆资料\智能消防\智能消防水压\STM8API_V4.0_V2.07-整理兼容未测试\STM8API_V4.0_V2.07-整理兼容未测试\STM8API\App) : #elif CONF_EX_MEMORY_EN == UPLOAD_EEPROM   //外存储器为eeprom
+SA_init in main.c (E:\魔豆资料\智能消防\智能消防水压\STM8API_V4.0_V2.07-整理兼容未测试\STM8API_V4.0_V2.07-整理兼容未测试\STM8API\App) : #if CONF_EX_MEMORY_EN == UPLOAD_SPI_FLASH  //外存储器为flash
+SA_init in main.c (E:\魔豆资料\智能消防\智能消防水压\STM8API_V4.0_V2.07-整理兼容未测试\STM8API_V4.0_V2.07-整理兼容未测试\STM8API\App) : #elif CONF_EX_MEMORY_EN == UPLOAD_EEPROM   //外存储器为eeprom
+main in main.c (E:\魔豆资料\智能消防\智能消防水压\STM8API_V4.0_V2.07-整理兼容未测试\STM8API_V4.0_V2.07-整理兼容未测试\STM8API\App) :   //Net_Data_Send.Link_Type = UPLOAD;
+moduleSelect.h (E:\魔豆资料\智能消防\智能消防水压\STM8API_V4.0_V2.07-整理兼容未测试\STM8API_V4.0_V2.07-整理兼容未测试\STM8API\App) line 21 : #define		UPLOAD_SPI_FLASH		0			/*用于固件升级的外存储器为FLASH*/
+moduleSelect.h (E:\魔豆资料\智能消防\智能消防水压\STM8API_V4.0_V2.07-整理兼容未测试\STM8API_V4.0_V2.07-整理兼容未测试\STM8API\App) line 22 : #define	        UPLOAD_EEPROM                   1                       /*用于固件升级的外存储器为EEPROM*/
+moduleSelect.h (E:\魔豆资料\智能消防\智能消防水压\STM8API_V4.0_V2.07-整理兼容未测试\STM8API_V4.0_V2.07-整理兼容未测试\STM8API\App) line 23 : #define         CONF_EX_MEMORY_EN               UPLOAD_SPI_FLASH        /*选择外部存储器*/
+moduleSelect.h (E:\魔豆资料\智能消防\智能消防水压\STM8API_V4.0_V2.07-整理兼容未测试\STM8API_V4.0_V2.07-整理兼容未测试\STM8API\App) line 45 :     #if CONF_EX_MEMORY_EN ==UPLOAD_SPI_FLASH
+nblot.c (E:\魔豆资料\智能消防\智能消防水压\STM8API_V4.0_V2.07-整理兼容未测试\STM8API_V4.0_V2.07-整理兼容未测试\STM8API\qwl_net\NBLOT) line 125 :   if(Net_Data_Send.Link_Type == UPLOAD)//切换到升级地址
+DealPostPro in PostProDa.c (E:\魔豆资料\智能消防\智能消防水压\STM8API_V4.0_V2.07-整理兼容未测试\STM8API_V4.0_V2.07-整理兼容未测试\STM8API\Protocol\PostProDa) :     Uploading_Pro(uf,DaPtr,len);
+DealPostPro in PostProDa.c (E:\魔豆资料\智能消防\智能消防水压\STM8API_V4.0_V2.07-整理兼容未测试\STM8API_V4.0_V2.07-整理兼容未测试\STM8API\Protocol\PostProDa) :     Uploading_Pro(uf,DaPtr,len);
+Protocol_send.c (E:\魔豆资料\智能消防\智能消防水压\STM8API_V4.0_V2.07-整理兼容未测试\STM8API_V4.0_V2.07-整理兼容未测试\STM8API\Protocol_send) line 7 : // 函数名称  : upload_link_send()
+Protocol_send.c (E:\魔豆资料\智能消防\智能消防水压\STM8API_V4.0_V2.07-整理兼容未测试\STM8API_V4.0_V2.07-整理兼容未测试\STM8API\Protocol_send) line 13 : void upload_link_send_POST()
+Protocol_send.c (E:\魔豆资料\智能消防\智能消防水压\STM8API_V4.0_V2.07-整理兼容未测试\STM8API_V4.0_V2.07-整理兼容未测试\STM8API\Protocol_send) line 94 : // 函数名称  : upload_link_send()
+Protocol_send.c (E:\魔豆资料\智能消防\智能消防水压\STM8API_V4.0_V2.07-整理兼容未测试\STM8API_V4.0_V2.07-整理兼容未测试\STM8API\Protocol_send) line 100 : void upload_link_send()
+upload_link_send in Protocol_send.c (E:\魔豆资料\智能消防\智能消防水压\STM8API_V4.0_V2.07-整理兼容未测试\STM8API_V4.0_V2.07-整理兼容未测试\STM8API\Protocol_send) :   if(Net_Data_Send.upload_handshake.REC_state != REC_OK)
+upload_link_send in Protocol_send.c (E:\魔豆资料\智能消防\智能消防水压\STM8API_V4.0_V2.07-整理兼容未测试\STM8API_V4.0_V2.07-整理兼容未测试\STM8API\Protocol_send) :   switch(Net_Data_Send.upload_handshake.send_state )
+upload_link_send in Protocol_send.c (E:\魔豆资料\智能消防\智能消防水压\STM8API_V4.0_V2.07-整理兼容未测试\STM8API_V4.0_V2.07-整理兼容未测试\STM8API\Protocol_send) :       if(Net_Data_Send.upload_handshake.TIMES>0)//发送次数
+upload_link_send in Protocol_send.c (E:\魔豆资料\智能消防\智能消防水压\STM8API_V4.0_V2.07-整理兼容未测试\STM8API_V4.0_V2.07-整理兼容未测试\STM8API\Protocol_send) :         if(Net_Data_Send.upload_handshake.TIMES!=0xff)
+upload_link_send in Protocol_send.c (E:\魔豆资料\智能消防\智能消防水压\STM8API_V4.0_V2.07-整理兼容未测试\STM8API_V4.0_V2.07-整理兼容未测试\STM8API\Protocol_send) :           Net_Data_Send.upload_handshake.TIMES--;
+upload_link_send in Protocol_send.c (E:\魔豆资料\智能消防\智能消防水压\STM8API_V4.0_V2.07-整理兼容未测试\STM8API_V4.0_V2.07-整理兼容未测试\STM8API\Protocol_send) :         Net_Data_Send.upload_handshake.delays=0;
+upload_link_send in Protocol_send.c (E:\魔豆资料\智能消防\智能消防水压\STM8API_V4.0_V2.07-整理兼容未测试\STM8API_V4.0_V2.07-整理兼容未测试\STM8API\Protocol_send) :         Net_Data_Send.upload_handshake.send_state=WAIT_ACK;
+upload_link_send in Protocol_send.c (E:\魔豆资料\智能消防\智能消防水压\STM8API_V4.0_V2.07-整理兼容未测试\STM8API_V4.0_V2.07-整理兼容未测试\STM8API\Protocol_send) :         upload_link_send_POST();
+upload_link_send in Protocol_send.c (E:\魔豆资料\智能消防\智能消防水压\STM8API_V4.0_V2.07-整理兼容未测试\STM8API_V4.0_V2.07-整理兼容未测试\STM8API\Protocol_send) :       if(Net_Data_Send.upload_handshake.delays>Net_Data_Send.upload_handshake.MAX_delays)
+upload_link_send in Protocol_send.c (E:\魔豆资料\智能消防\智能消防水压\STM8API_V4.0_V2.07-整理兼容未测试\STM8API_V4.0_V2.07-整理兼容未测试\STM8API\Protocol_send) :         Net_Data_Send.upload_handshake.delays=0;
+upload_link_send in Protocol_send.c (E:\魔豆资料\智能消防\智能消防水压\STM8API_V4.0_V2.07-整理兼容未测试\STM8API_V4.0_V2.07-整理兼容未测试\STM8API\Protocol_send) :         Net_Data_Send.upload_handshake.send_state=SEND_READY;
+upload_link_send in Protocol_send.c (E:\魔豆资料\智能消防\智能消防水压\STM8API_V4.0_V2.07-整理兼容未测试\STM8API_V4.0_V2.07-整理兼容未测试\STM8API\Protocol_send) :       if(Net_Data_Send.upload_handshake.REC_state == REC_OK)
+upload_link_send in Protocol_send.c (E:\魔豆资料\智能消防\智能消防水压\STM8API_V4.0_V2.07-整理兼容未测试\STM8API_V4.0_V2.07-整理兼容未测试\STM8API\Protocol_send) :         Net_Data_Send.upload_handshake.TIMES=0;
+upload_link_send in Protocol_send.c (E:\魔豆资料\智能消防\智能消防水压\STM8API_V4.0_V2.07-整理兼容未测试\STM8API_V4.0_V2.07-整理兼容未测试\STM8API\Protocol_send) :         Net_Data_Send.upload_handshake.send_state=SEND_READY;
+upload_link_send in Protocol_send.c (E:\魔豆资料\智能消防\智能消防水压\STM8API_V4.0_V2.07-整理兼容未测试\STM8API_V4.0_V2.07-整理兼容未测试\STM8API\Protocol_send) :         Net_Data_Send.upload_handshake.delays=0;
+net_data_send_init in Protocol_send.c (E:\魔豆资料\智能消防\智能消防水压\STM8API_V4.0_V2.07-整理兼容未测试\STM8API_V4.0_V2.07-整理兼容未测试\STM8API\Protocol_send) :   Net_Data_Send.upload_handshake.delays =0;
+net_data_send_init in Protocol_send.c (E:\魔豆资料\智能消防\智能消防水压\STM8API_V4.0_V2.07-整理兼容未测试\STM8API_V4.0_V2.07-整理兼容未测试\STM8API\Protocol_send) :   Net_Data_Send.upload_handshake.MAX_delays  =15;
+net_data_send_init in Protocol_send.c (E:\魔豆资料\智能消防\智能消防水压\STM8API_V4.0_V2.07-整理兼容未测试\STM8API_V4.0_V2.07-整理兼容未测试\STM8API\Protocol_send) :   Net_Data_Send.upload_handshake.TIMES  =6;
+net_data_send_init in Protocol_send.c (E:\魔豆资料\智能消防\智能消防水压\STM8API_V4.0_V2.07-整理兼容未测试\STM8API_V4.0_V2.07-整理兼容未测试\STM8API\Protocol_send) :   Net_Data_Send.upload_handshake.send_state  =SEND_READY;
+net_data_send_init in Protocol_send.c (E:\魔豆资料\智能消防\智能消防水压\STM8API_V4.0_V2.07-整理兼容未测试\STM8API_V4.0_V2.07-整理兼容未测试\STM8API\Protocol_send) :   Net_Data_Send.upload_handshake.REC_state = WAIT_REC;
+net_data_send_delay in Protocol_send.c (E:\魔豆资料\智能消防\智能消防水压\STM8API_V4.0_V2.07-整理兼容未测试\STM8API_V4.0_V2.07-整理兼容未测试\STM8API\Protocol_send) :   Net_Data_Send.upload_handshake.delays++;
+net_data_send in Protocol_send.c (E:\魔豆资料\智能消防\智能消防水压\STM8API_V4.0_V2.07-整理兼容未测试\STM8API_V4.0_V2.07-整理兼容未测试\STM8API\Protocol_send) :     if(Net_Data_Send.Link_Type == UPLOAD)
+net_data_send in Protocol_send.c (E:\魔豆资料\智能消防\智能消防水压\STM8API_V4.0_V2.07-整理兼容未测试\STM8API_V4.0_V2.07-整理兼容未测试\STM8API\Protocol_send) :       upload_link_send();//主动握手升级服务器
+Protocol_send.h (E:\魔豆资料\智能消防\智能消防水压\STM8API_V4.0_V2.07-整理兼容未测试\STM8API_V4.0_V2.07-整理兼容未测试\STM8API\Protocol_send) line 17 : 	UPLOAD,
+{anonPROTOCOL_SEND_TYPE} in Protocol_send.h (E:\魔豆资料\智能消防\智能消防水压\STM8API_V4.0_V2.07-整理兼容未测试\STM8API_V4.0_V2.07-整理兼容未测试\STM8API\Protocol_send) :     SEND_TYPE upload_handshake;//升级握手
+Public.c (E:\魔豆资料\智能消防\智能消防水压\STM8API_V4.0_V2.07-整理兼容未测试\STM8API_V4.0_V2.07-整理兼容未测试\STM8API\App) line 103 : // 函数名称  : Uploading_Send_12
+Public.c (E:\魔豆资料\智能消防\智能消防水压\STM8API_V4.0_V2.07-整理兼容未测试\STM8API_V4.0_V2.07-整理兼容未测试\STM8API\App) line 109 : void Uploading_Send_12(USART_FUNCTION uf,uchar *DaPtr,uint16 len)
+Public.h (E:\魔豆资料\智能消防\智能消防水压\STM8API_V4.0_V2.07-整理兼容未测试\STM8API_V4.0_V2.07-整理兼容未测试\STM8API\App) line 29 : void Uploading_Send_12(USART_FUNCTION uf,uchar *DaPtr,uint16 len);
+net_state in qwl_net.c (E:\魔豆资料\智能消防\智能消防水压\STM8API_V4.0_V2.07-整理兼容未测试\STM8API_V4.0_V2.07-整理兼容未测试\STM8API\qwl_net) :         //upload_link_send();
+stm8l15x_conf.h (E:\魔豆资料\智能消防\智能消防水压\STM8API_V4.0_V2.07-整理兼容未测试\STM8API_V4.0_V2.07-整理兼容未测试\STM8API\App) line 95 : //#include "Uploading_Pro.h"
+Uploading_Pro.c (E:\魔豆资料\智能消防\智能消防水压\STM8API_V4.0_V2.07-整理兼容未测试\STM8API_V4.0_V2.07-整理兼容未测试\STM8API\Protocol\PostProDa) line 6 : // 函数名称  : Uploading_Send_50
+Uploading_Pro.c (E:\魔豆资料\智能消防\智能消防水压\STM8API_V4.0_V2.07-整理兼容未测试\STM8API_V4.0_V2.07-整理兼容未测试\STM8API\Protocol\PostProDa) line 12 : static void Uploading_Send_50(USART_FUNCTION uf,uchar *DaPtr,uint16 len)
+Uploading_Pro.c (E:\魔豆资料\智能消防\智能消防水压\STM8API_V4.0_V2.07-整理兼容未测试\STM8API_V4.0_V2.07-整理兼容未测试\STM8API\Protocol\PostProDa) line 21 : // 函数名称  : Uploading_Send_F8
+Uploading_Pro.c (E:\魔豆资料\智能消防\智能消防水压\STM8API_V4.0_V2.07-整理兼容未测试\STM8API_V4.0_V2.07-整理兼容未测试\STM8API\Protocol\PostProDa) line 27 : static void Uploading_Send_F8(USART_FUNCTION uf,uchar *DaPtr,uint16 len)
+Uploading_Pro.c (E:\魔豆资料\智能消防\智能消防水压\STM8API_V4.0_V2.07-整理兼容未测试\STM8API_V4.0_V2.07-整理兼容未测试\STM8API\Protocol\PostProDa) line 75 : // 函数名称  : Uploading_Pro
+Uploading_Pro.c (E:\魔豆资料\智能消防\智能消防水压\STM8API_V4.0_V2.07-整理兼容未测试\STM8API_V4.0_V2.07-整理兼容未测试\STM8API\Protocol\PostProDa) line 81 : void Uploading_Pro(USART_FUNCTION uf,uchar *DaPtr,uint16 len)
+Uploading_Pro.c (E:\魔豆资料\智能消防\智能消防水压\STM8API_V4.0_V2.07-整理兼容未测试\STM8API_V4.0_V2.07-整理兼容未测试\STM8API\Protocol\PostProDa) line 88 :     Uploading_Send_50(uf,DaPtr,len);
+Uploading_Pro.c (E:\魔豆资料\智能消防\智能消防水压\STM8API_V4.0_V2.07-整理兼容未测试\STM8API_V4.0_V2.07-整理兼容未测试\STM8API\Protocol\PostProDa) line 92 :       if(Net_Data_Send.upload_handshake.REC_state == WAIT_REC)//判断首次握手，等待接受数据
+Uploading_Pro.c (E:\魔豆资料\智能消防\智能消防水压\STM8API_V4.0_V2.07-整理兼容未测试\STM8API_V4.0_V2.07-整理兼容未测试\STM8API\Protocol\PostProDa) line 95 :         Uploading_Send_F8(uf,DaPtr,len);
+Uploading_Pro.c (E:\魔豆资料\智能消防\智能消防水压\STM8API_V4.0_V2.07-整理兼容未测试\STM8API_V4.0_V2.07-整理兼容未测试\STM8API\Protocol\PostProDa) line 97 :         if(Net_Data_Send.Link_Type != UPLOAD){
+Uploading_Pro.c (E:\魔豆资料\智能消防\智能消防水压\STM8API_V4.0_V2.07-整理兼容未测试\STM8API_V4.0_V2.07-整理兼容未测试\STM8API\Protocol\PostProDa) line 98 : #if CONF_EX_MEMORY_EN == UPLOAD_EEPROM//升级前测试硬件
+Uploading_Pro.c (E:\魔豆资料\智能消防\智能消防水压\STM8API_V4.0_V2.07-整理兼容未测试\STM8API_V4.0_V2.07-整理兼容未测试\STM8API\Protocol\PostProDa) line 104 :             Net_Data_Send.Link_Type = UPLOAD;//一次应答后，切换到固件升级模式
+Uploading_Pro.c (E:\魔豆资料\智能消防\智能消防水压\STM8API_V4.0_V2.07-整理兼容未测试\STM8API_V4.0_V2.07-整理兼容未测试\STM8API\Protocol\PostProDa) line 118 :           Net_Data_Send.upload_handshake.REC_state=REC_OK;//
+Uploading_Pro.c (E:\魔豆资料\智能消防\智能消防水压\STM8API_V4.0_V2.07-整理兼容未测试\STM8API_V4.0_V2.07-整理兼容未测试\STM8API\Protocol\PostProDa) line 146 :       Uploading_Send_12(uf,DaPtr,len);//
+Uploading_Pro.h (E:\魔豆资料\智能消防\智能消防水压\STM8API_V4.0_V2.07-整理兼容未测试\STM8API_V4.0_V2.07-整理兼容未测试\STM8API\Protocol\PostProDa) line 1 : #ifndef	 _UPLOADING_PRO_H
+Uploading_Pro.h (E:\魔豆资料\智能消防\智能消防水压\STM8API_V4.0_V2.07-整理兼容未测试\STM8API_V4.0_V2.07-整理兼容未测试\STM8API\Protocol\PostProDa) line 2 : #define  _UPLOADING_PRO_H
+Uploading_Pro.h (E:\魔豆资料\智能消防\智能消防水压\STM8API_V4.0_V2.07-整理兼容未测试\STM8API_V4.0_V2.07-整理兼容未测试\STM8API\Protocol\PostProDa) line 27 : void Uploading_Pro(USART_FUNCTION uf,uchar *DaPtr,u16 len);

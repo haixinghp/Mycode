@@ -1,0 +1,120 @@
+
+///////////////////////////////////////////////////////////////////////////
+//////////////////////历史版本修改记录///////////////////////////////
+
+//20170105 BUG  在模块初始化有问题的情况下 AT没有响应的情况下 退出机制有问题  	[已修复]
+//20170111 BUG  在正方向上  零点角度满足触发变化角度的情况下 会触发告警机制 	[已修复]
+
+
+//20170117 重要更新  在前后角度不连续的情况下 做了过滤处理
+
+//20170425 BUG 上报的告警次数  不包含重试次数
+//20170425 版本改进  二次确认 SOFT_VERSION---V2.00 DEMO WDG SQ
+
+//20170503	SOFT_VERSION---V2.10 DEMO WDG SQ     
+//正式发布时间：
+//修改内容：
+//			二次确认改进 
+//			心跳新增字段 二次确认间隔时间 采集IP及端口 重连间隔替换为电池发送总次数
+//			配置命令里 新增 二次确认间隔时间 字段
+//			使能报警间隔时间字段 每次报警前查询时间间隔（RTC查询）
+//			修正电池发送总次数
+//			默认触发角度修正为15度 默认触发的灵敏度设置为12
+//			二次确认间隔时间为秒 需修改配置函数
+//			BUG：心跳包发完后，触发二次确认告警，已修复
+///////////////////////////////////////////////////////////////////////////
+//20170509	#define SOFT_VERSION     "SOFT_VERSION---V3.10 DEMO WDG SQ DB" //二次确认+底板适配
+//              #define HARDWARE_VERSION "HARDWARE_VERSION---V2.01" 
+//软件版本 6   硬件版本  2
+
+//20170518 BUG 修复  写入地址
+                   //#define SYS_KEYDATA_SEND_TOTALCOUNT_ADDR_OFFSET	25
+                  //#define SYS_KEYDATA_SEND_TOTALCOUNT_ADDR_OFFSET	27
+
+//#define SOFT_VERSION     "SOFT_VERSION---V3.11 DEMO WDG SQ DB C" //二次确认+底板适配
+//#define HARDWARE_VERSION "HARDWARE_VERSION---V2.01"
+
+//20170518 BUG修复  在协议配置完成后 重新获取静态角度 20170713
+//20170518 BUG修复 不能读到ADXL362的时候 需要重启 20170713
+//20170518 BUG修复  翻盖后  角度为0 不能上报 已修正 20170713
+
+//20170713 BUG修复  去除了 多余的一次电池发送次数累加
+
+//20170713 默认连接地址 修改为 39.108.91.208:20008
+//#define SOFT_VERSION     "SOFT_VERSION---V3.12 DEMO WDG SQ DB C" //二次确认+底板适配
+//20170713 在不能读到卡号的情况下，继续收发
+//20170713 修改了拨号到服务器  等待的时间3500-15000
+
+
+//#define SOFT_VERSION     "SOFT_VERSION---V3.15 DEMO WDG SQ DB C" //二次确认+底板适配
+//20170724 重新连接机制 重做连接
+
+//#define SOFT_VERSION     "SOFT_VERSION---V3.2 DEMO WDG SQ DB NB" //二次确认+底板适配
+//#define HARDWARE_VERSION "HARDWARE_VERSION---V2.03" 
+//20170727 修改了零点角度判断 
+//20170729 增加水位报警、降水推送
+//20170731 发送长数据前，喂狗防止复位
+//20170802 添加三轴正反面撬井功能宏开关
+//20170802 二次确认时间为0或65535时，关闭二次确认功能
+
+//#define SOFT_VERSION     "SOFT_VERSION---V3.3 DEMO WDG SQ DB NB" //二次确认+底板适配
+//#define HARDWARE_VERSION "HARDWARE_VERSION---V2.03" =
+//20170815 二次确认前，添加重新设置零点和雷达确认的机制
+
+//#define SOFT_VERSION     "SOFT_VERSION---V3.4 DEMO WDG SQ DB NB" //二次确认+底板适配
+//#define HARDWARE_VERSION "HARDWARE_VERSION---V2.03" 
+//20170828 BUG修复   井盖快速掀起，无触发
+//  if(sysFunState != 5 ){
+//    if ((ADXL362_ReadReg(ADXL362_REG_STATUS)&ADXL362_STATUS_AWAKE)){
+//      GetNewInactAngle_Fun_state = 1;//只要触发  必进入1
+//    }
+//  }
+
+//#define SOFT_VERSION     "SOFT_VERSION---V3.7 DEMO WDG SQ DB IAP //二次确认+底板适配
+//#define HARDWARE_VERSION "HARDWARE_VERSION---V2.03" =
+//20170926 移植远程升级
+//20170926 修改二次确认RTC，进入二次确认直接切换正常RTC
+
+//#define SOFT_VERSION     "SOFT_VERSION---V3.7 DEMO WDG SQ DB IAP" //二次确认+底板适配
+//#define HARDWARE_VERSION "HARDWARE_VERSION---V2.05" =
+//20171005   最后保存固件长度不对
+//           修复：DWORD fileLen = _gUpdateVal.writePtr- _gUpdateArg.startAddr + _gUpdateVal.remainSize; 
+//20171011   bug：NB设备升级过程中会出现复位的现象。
+//            措施：数据缓存过大溢出，将升级包大小改小至128byte。
+//           bug：NB井盖设备和CDMA井盖设备升级过程中出现：100字节的包只下载4个字节和100字节的包循环下载300字节的现象。
+//           程序：count = 0;//排除count>4情况，去掉中途续传功能，升级包要保证4的倍数
+//           bug：程序重启时对eeprom硬件好坏的印证，会更改内部数据。
+//           措施：改为IAP参数前15字节无用区域验证
+//20171012  切换升级时候，心跳改为一小时
+//            Sys_keydata.heartdata_sent_interval_hour_count = 1;
+//            防止升级过程中断连接慢，更新重启后能从eeprom读出回复
+
+//#define SOFT_VERSION     "SOFT_VERSION---V3.8 DEMO WDG SQ DB IAP" //二次确认+底板适配
+//#define HARDWARE_VERSION "HARDWARE_VERSION---V2.05"
+//20171013  添加程序内容校验和、添加写入校验
+//20171013  修复bug：内部eeprom读取操作错误
+//          代码——————
+/*         u8 EEPROM_Read(u16 Addr,u8 *RxBuffer,u8 Length)  
+            {  
+                u16 T=0;  
+                u8 *EEP;  
+                EEP=(u8 *)(EEPROM_STARTADDR+Addr);  
+            //    FLASH->DUKR=0xAE;  
+            //    FLASH->DUKR=0x56;  //bug：读取时解锁，需注释 20171013
+            //    FLASH->CR2=0x00;  
+            //    while((!(FLASH->IAPSR&(1<<3)))&(T<0xFFFF))
+            //      T++;  
+            //    if(T==0xFFFF)return 0;  
+                while(Length--){  
+                    *RxBuffer++=*EEP++;  
+                }  
+                return 1;  
+            }  
+*/
+//#define SOFT_VERSION     "SOFT_VERSION---V3.81 DEMO WDG SQ DB IAP" //二次确认+底板适配
+//#define HARDWARE_VERSION "HARDWARE_VERSION---V2.05"
+//20171024 CDMA识别模块
+
+//#define SOFT_VERSION     "SOFT_VERSION---V3.82 DEMO WDG SQ DB IAP" //二次确认+底板适配
+//#define HARDWARE_VERSION "HARDWARE_VERSION---V2.05"
+//20171026  升级包校验中添加长度校验 修改函数——DownLoad_DealProtocol

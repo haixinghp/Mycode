@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<Workspace>
+  <ConfigDictionary>
+    
+  <CurrentConfigs><Project>STM8API/Debug</Project></CurrentConfigs></ConfigDictionary>
+  <Desktop>
+    <Static>
+      <Build>
+        
+        
+        
+        
+      <PreferedWindows><Position>4</Position><ScreenPosX>628</ScreenPosX><ScreenPosY>300</ScreenPosY><Windows><Window><Factory>Disassembly</Factory></Window><Window><Factory>Debug-Log</Factory></Window><Window><Factory>Find-in-Files</Factory></Window><Window><Factory>Find-All-Declarations</Factory></Window><Window><Factory>Select-Ambiguous-Definitions</Factory></Window><Window><Factory>Memory</Factory></Window></Windows></PreferedWindows><ColumnWidth0>20</ColumnWidth0><ColumnWidth1>1023</ColumnWidth1><ColumnWidth2>273</ColumnWidth2><ColumnWidth3>68</ColumnWidth3></Build>
+      <Workspace>
+        <ColumnWidths>
+          
+          
+          
+          
+        <Column0>201</Column0><Column1>27</Column1><Column2>27</Column2><Column3>27</Column3></ColumnWidths>
+      </Workspace>
+    <Find-in-Files><PreferedWindows><Position>4</Position><ScreenPosX>628</ScreenPosX><ScreenPosY>300</ScreenPosY><Windows><Window><Factory>Disassembly</Factory></Window><Window><Factory>Debug-Log</Factory></Window><Window><Factory>Build</Factory></Window><Window><Factory>Find-All-Declarations</Factory></Window><Window><Factory>Select-Ambiguous-Definitions</Factory></Window><Window><Factory>Memory</Factory></Window></Windows></PreferedWindows><ColumnWidth0>569</ColumnWidth0><ColumnWidth1>94</ColumnWidth1><ColumnWidth2>854</ColumnWidth2><ColumnWidth3>379</ColumnWidth3></Find-in-Files><Select-Ambiguous-Definitions><PreferedWindows><Position>4</Position><ScreenPosX>628</ScreenPosX><ScreenPosY>300</ScreenPosY><Windows><Window><Factory>Disassembly</Factory></Window><Window><Factory>Debug-Log</Factory></Window><Window><Factory>Build</Factory></Window><Window><Factory>Find-in-Files</Factory></Window><Window><Factory>Find-All-Declarations</Factory></Window><Window><Factory>Memory</Factory></Window></Windows></PreferedWindows><ColumnWidth0>767</ColumnWidth0><ColumnWidth1>94</ColumnWidth1><ColumnWidth2>1138</ColumnWidth2></Select-Ambiguous-Definitions><Debug-Log><PreferedWindows><Position>4</Position><ScreenPosX>962</ScreenPosX><ScreenPosY>365</ScreenPosY><Windows><Window><Factory>StaticWatch</Factory></Window><Window><Factory>WATCH_1</Factory></Window><Window><Factory>QuickWatch</Factory></Window><Window><Factory>Memory</Factory></Window><Window><Factory>Memory</Factory></Window><Window><Factory>Memory</Factory></Window></Windows></PreferedWindows><ColumnWidth0>18</ColumnWidth0><ColumnWidth1>1863</ColumnWidth1></Debug-Log><TerminalIO/><Disassembly><PreferedWindows><Position>4</Position><ScreenPosX>628</ScreenPosX><ScreenPosY>300</ScreenPosY><Windows><Window><Factory>Debug-Log</Factory></Window><Window><Factory>Build</Factory></Window><Window><Factory>Find-in-Files</Factory></Window><Window><Factory>Find-All-Declarations</Factory></Window><Window><Factory>Select-Ambiguous-Definitions</Factory></Window><Window><Factory>Memory</Factory></Window></Windows></PreferedWindows></Disassembly><Find-All-Declarations><PreferedWindows><Position>4</Position><ScreenPosX>628</ScreenPosX><ScreenPosY>300</ScreenPosY><Windows><Window><Factory>Disassembly</Factory></Window><Window><Factory>Debug-Log</Factory></Window><Window><Factory>Build</Factory></Window><Window><Factory>Find-in-Files</Factory></Window><Window><Factory>Select-Ambiguous-Definitions</Factory></Window><Window><Factory>Memory</Factory></Window></Windows></PreferedWindows><ColumnWidth0>394</ColumnWidth0><ColumnWidth1>56</ColumnWidth1><ColumnWidth2>676</ColumnWidth2></Find-All-Declarations><Memory><PreferedWindows><Position>4</Position><ScreenPosX>747</ScreenPosX><ScreenPosY>243</ScreenPosY><Windows/></PreferedWindows></Memory><StaticWatch><PreferedWindows><Position>4</Position><ScreenPosX>1044</ScreenPosX><ScreenPosY>275</ScreenPosY><Windows><Window><Factory>WATCH_1</Factory></Window><Window><Factory>Memory</Factory></Window></Windows></PreferedWindows></StaticWatch><WATCH_1><PreferedWindows><Position>4</Position><ScreenPosX>1044</ScreenPosX><ScreenPosY>275</ScreenPosY><Windows><Window><Factory>StaticWatch</Factory></Window><Window><Factory>Memory</Factory></Window></Windows></PreferedWindows></WATCH_1><QuickWatch><PreferedWindows><Position>4</Position><ScreenPosX>962</ScreenPosX><ScreenPosY>365</ScreenPosY><Windows><Window><Factory>StaticWatch</Factory></Window><Window><Factory>WATCH_1</Factory></Window><Window><Factory>Debug-Log</Factory></Window><Window><Factory>Memory</Factory></Window><Window><Factory>Memory</Factory></Window><Window><Factory>Memory</Factory></Window></Windows></PreferedWindows></QuickWatch><Find-All-References><ColumnWidth0>519</ColumnWidth0><ColumnWidth1>74</ColumnWidth1><ColumnWidth2>890</ColumnWidth2></Find-All-References><PROJECT_GUI_CALL_GRAPH><col-names><item>File</item><item>Function</item><item>Line</item></col-names><col-widths><item>200</item><item>700</item><item>100</item></col-widths></PROJECT_GUI_CALL_GRAPH><SourceBrowser/></Static>
+    <Windows>
+      
+      
+    <Wnd0>
+        <Tabs>
+          <Tab>
+            <Identity>TabID-28257-17764</Identity>
+            <TabName>Build</TabName>
+            <Factory>Build</Factory>
+            <Session/>
+          </Tab>
+        <Tab><Identity>TabID-20254-3073</Identity><TabName>Ambiguous Definitions</TabName><Factory>Select-Ambiguous-Definitions</Factory><Session/></Tab><Tab><Identity>TabID-3818-9498</Identity><TabName>Declarations</TabName><Factory>Find-All-Declarations</Factory><Session/></Tab><Tab><Identity>TabID-22969-31371</Identity><TabName>Debug Log</TabName><Factory>Debug-Log</Factory><Session/></Tab><Tab><Identity>TabID-27573-21443</Identity><TabName>Find in Files</TabName><Factory>Find-in-Files</Factory><Session/></Tab></Tabs>
+        
+      <SelectedTab>4</SelectedTab></Wnd0><Wnd1>
+        <Tabs>
+          <Tab>
+            <Identity>TabID-6238-17767</Identity>
+            <TabName>Workspace</TabName>
+            <Factory>Workspace</Factory>
+            <Session>
+              
+            <NodeDict><ExpandedNode>STM8API</ExpandedNode><ExpandedNode>STM8API/ABOUTIAP</ExpandedNode><ExpandedNode>STM8API/ABOUTIAP/APP</ExpandedNode><ExpandedNode>STM8API/FwLib</ExpandedNode><ExpandedNode>STM8API/SA_UserLib</ExpandedNode><ExpandedNode>STM8API/SA_UserLib/EEprom</ExpandedNode><ExpandedNode>STM8API/SA_UserLib/SA_Protocol</ExpandedNode><ExpandedNode>STM8API/SA_UserLib/Spi</ExpandedNode><ExpandedNode>STM8API/SA_UserLib/Timer</ExpandedNode><ExpandedNode>STM8API/SA_UserLib/Uart</ExpandedNode><ExpandedNode>STM8API/SA_sys</ExpandedNode><ExpandedNode>STM8API/SA_sys/Cover</ExpandedNode><ExpandedNode>STM8API/SA_sys/Main</ExpandedNode><ExpandedNode>STM8API/SA_sys/Pressure</ExpandedNode><ExpandedNode>STM8API/SA_sys/Rtc</ExpandedNode><ExpandedNode>STM8API/SA_sys/Storage</ExpandedNode></NodeDict></Session>
+          </Tab>
+        <Tab><Identity>TabID-378-29049</Identity><TabName>Source Browser</TabName><Factory>SourceBrowser</Factory><Session><TypeFilter>2147483647</TypeFilter><FileFilter>1</FileFilter></Session></Tab></Tabs>
+        
+      <SelectedTab>0</SelectedTab></Wnd1></Windows>
+    <Editor>
+      
+      
+      
+      
+    <Pane><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\..\..\..\STM8API\App\main.c</Filename><XPos>0</XPos><YPos>0</YPos><SelStart>0</SelStart><SelEnd>0</SelEnd><XPos2>0</XPos2><YPos2>250</YPos2><SelStart2>8206</SelStart2><SelEnd2>8206</SelEnd2></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\..\qwl_net\NBLOT\nblot.c</Filename><XPos>0</XPos><YPos>0</YPos><SelStart>0</SelStart><SelEnd>0</SelEnd><XPos2>0</XPos2><YPos2>368</YPos2><SelStart2>10063</SelStart2><SelEnd2>10063</SelEnd2></Tab><ActiveTab>1</ActiveTab></Pane><Pane><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\..\App\main.c</Filename><XPos>0</XPos><YPos>0</YPos><SelStart>0</SelStart><SelEnd>0</SelEnd><XPos2>0</XPos2><YPos2>0</YPos2><SelStart2>238</SelStart2><SelEnd2>238</SelEnd2></Tab><ActiveTab>0</ActiveTab></Pane><ActivePane>1</ActivePane><Sizes><Pane><X>548585</X><Y>1000000</Y></Pane><Pane><X>451414</X><Y>1000000</Y></Pane></Sizes><SplitMode>4</SplitMode></Editor>
+    <Positions>
+      
+      
+      
+      
+      
+    <Top><Row0><Sizes><Toolbar-02A9FA28><key>iaridepm.enu1</key></Toolbar-02A9FA28></Sizes></Row0></Top><Left><Row0><Sizes><Wnd1><Rect><Top>-2</Top><Left>-2</Left><Bottom>701</Bottom><Right>292</Right><x>-2</x><y>-2</y><xscreen>13</xscreen><yscreen>47</yscreen><sizeHorzCX>6771</sizeHorzCX><sizeHorzCY>45279</sizeHorzCY><sizeVertCX>153125</sizeVertCX><sizeVertCY>677264</sizeVertCY></Rect></Wnd1></Sizes></Row0></Left><Right><Row0><Sizes/></Row0></Right><Bottom><Row0><Sizes><Wnd0><Rect><Top>-2</Top><Left>-2</Left><Bottom>292</Bottom><Right>1922</Right><x>-2</x><y>-2</y><xscreen>1924</xscreen><yscreen>294</yscreen><sizeHorzCX>1002083</sizeHorzCX><sizeHorzCY>283237</sizeHorzCY><sizeVertCX>6771</sizeVertCX><sizeVertCY>45279</sizeVertCY></Rect></Wnd0></Sizes></Row0></Bottom><Float><Sizes/></Float></Positions>
+  </Desktop>
+</Workspace>
+
+
